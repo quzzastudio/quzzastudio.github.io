@@ -1,53 +1,33 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Quzza Studio">
-    <meta name="site" content="https://quzzastudio.github.io">
+<!DOCTYPE html>
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><data:view.title.escaped/> : <b:eval expr='data:blog.pageName ? data:blog.pageName.escaped : data:blog.title.escaped' /></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="canonical" href="https://www.quzzastudio.com/">
+  <link href="https://quzzastudio.github.io/assets/img/favicon.png" rel="icon">
+  <link href="https://quzzastudio.github.io/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://quzzastudio.github.io/assets/portal/3.7/css/style.css">
 
-    <title>QuzzaStudio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="https://quzzastudio.github.io/assets/css/styles.css" rel="stylesheet" crossorigin="anonymous">
-  </head>
-  <body>
-    <main>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="https://quzzastudio.github.io/assets/img/quzza-studio.png" class="brand-logo" alt="QuzzaStudio Logo" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-          </div>
+  <link rel="alternate" type="application/rss+xml" title="QuzzaStudio &raquo; Feed" href="https://www.quzzastudio.com/p/feed/">
 
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-          </ul>
-        </div>
-      </nav>
+  <meta name="google-site-verification" content="">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.quzzastudio.com/p/#website","url":"https://www.quzzastudio.com/p/","name":"QuzzaStudio","description":"Free Bootstrap Themes and Website Templates","potentialAction":[{"@type":"SearchAction","target":"https://www.quzzastudio.com/p/search/?q={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https://www.quzzastudio.com/p/#webpage","url":"https://www.quzzastudio.com/p/","name":"QuzzaStudio - Free Bootstrap Themes and Website Templates","isPartOf":{"@id":"https://www.quzzastudio.com/p/#website"},"description":"Free Bootstrap Themes and Website Templates","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.quzzastudio.com/p/"]}]}]}</script>
+</head>
 
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </body>
+<body>
+<?php $this->load->view('common/__header',$this->cms);?>
+<main id="main">
+	<?php $this->load->view('common/__section_hero',$this->cms);?>
+	<div class="container">
+		<?php $this->load->view('common/__page_featured',$this->cms);?>
+	</div>
+</main>
+<?php $this->load->view('common/__footer',$this->cms);?>
+
+</body>
 </html>
