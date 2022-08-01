@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><data:view.title.escaped/> : <b:eval expr='data:blog.pageName ? data:blog.pageName.escaped : data:blog.title.escaped' /></title>
+  <title>QuzzaStudio</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <link rel="canonical" href="https://www.quzzastudio.com/">
@@ -20,14 +20,141 @@
 </head>
 
 <body>
-<?php $this->load->view('common/__header',$this->cms);?>
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center position-relative">
+    <a href="<?=base_url();?>" rel="home" title="<?=$app_title;?>" class="logo d-flex me-auto align-items-center">
+      <img alt="QuzzaStudio" src="https://quzzastudio.github.io/assets/img/quzza-studio.png" height="40" />
+    </a>
+    <nav class="nav-menu">
+    <ul>
+      <li class="active"><a href="https://www.quzzastudio.com">Home</a></li>
+      <li class="nav-categories "><a href="#"><span>Templates</span>&nbsp;<i class="bi bi-chevron-down"></i></a>
+        <ul>
+
+          <li><i class="bi bi-dot"></i><a href="" >Bootstrap</a></li>
+
+        </ul>
+      </li>
+      <li ><a href="https://www.quzzastudio.com/p/members/support/">Support</a></li>
+      <li ><a href="https://www.quzzastudio.com/p/contact/">Contact</a></li>
+      <li class="memberarea "><a href="https://www.quzzastudio.com/p/members/"><i class="bi bi-person"></i>&nbsp;<span>Members</span></a></li>
+    </ul>
+    </nav>
+
+    <div class="d-none d-xl-flex">
+      <form class="search-form d-flex align-items-center ajaxform" data-append="#main" method="POST"
+          action="https://www.quzzastudio.com/p/search/">
+        <input type="text" value="" name="q" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+    <a href="#" class="mobile-nav-toggle mobile-nav-show d-lg-none" title="Toggle Menu"><i class="bi bi-list"></i></a>
+    <a href="#" class="mobile-nav-toggle mobile-nav-hide" title="Close Menu">
+      <svg class="icon icon-close" fill="currentColor"><use xlink:href="https://quzzastudio.github.io/assets/img/icons-3.4.svg#close"/></svg>
+    </a>
+    <svg class="icon icon-search search-bar-toggle d-block d-xl-none" fill="currentColor">
+      <use xlink:href="https://quzzastudio.github.io/assets/img/icons-3.4.svg#search"/>
+    </svg>
+  </div>
+</header>
+
 <main id="main">
-	<?php $this->load->view('common/__section_hero',$this->cms);?>
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+    <img src="https://quzzastudio.github.io/assets/img/ninja-quzza-studio.png" alt="QuzzaStudio" height="90" />
+    <h1>Free Bootstrap Templates</h1>
+    <p>At QuzzaStudio, we create beautiful website templates with love, the most popular Bootstrap, HTML, CSS and JavaScript framework.</p>
+    <a href="#featured-templates" class="scrollto btn btn-primary">Browse Templates</a>
+  </section>
 	<div class="container">
-		<?php $this->load->view('common/__page_featured',$this->cms);?>
+
+    <div class="row">
+      <div class="col-12 page-header">
+        <p class="page-title">Chek Our Latest Templates</p>
+      </div>
+      <div class="col-12 col-lg-12 col-xl-12 my-2">
+        <div class="template-card d-xl-flex">
+          <picture class="flex-shrink-0">
+            <img src="http://localhost/QS_portal/assets/theme/Yummy-bootstrap-website-template-md.png" class="img-fluid" alt="PhotoFolio - Bootstrap Photography Website Template" width="800" height="600" />
+          </picture>
+          <div class="details">
+            <h2><a href="http://localhost/QS_portal/photofolio-bootstrap-photography-website-template/" rel="bookmark">PhotoFolio - Bootstrap Photography Website Template</a></h2>
+            <p>PhotoFolio is an elegant and creative Photography website template built with the Bootstrap framework. It's the ideal photography HTML template for photographers, designers, and those who need an easy, attractive, and effective way to share ...</p>
+            <div class="buttons">
+              <a href="http://localhost/QS_portal/demo/PhotoFolio/" rel="nofollow" class="demo" target="_blank">
+                <span title="Live Demo">Live Demo</span>
+              </a>&nbsp;
+              <a href="http://localhost/QS_portal/photofolio-bootstrap-photography-website-template/#download" rel="nofollow" class="download">
+                <span title="Download">Free Download</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 	</div>
 </main>
-<?php $this->load->view('common/__footer',$this->cms);?>
+
+
+<footer id="footer">
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-xxl-6 col-xl-5 col-md-12 footer-about">
+					<a href="https://www.quzzastudio.com" rel="home" title="Free Bootstrap Themes and Website Templates" class="logo d-flex align-items-center">
+						<img alt="QuzzaStudio" src="https://quzzastudio.github.io/assets/img/quzza-studio.png" height="30" />
+					</a>
+					<p class="description"> High quality free Bootstrap website templates. Build your next website with our modern and fully responsive web templates!</p>
+					<div class="social-links d-flex mt-3">
+						<a href="https://twitter.com/QuzzaStudio" target="_blank" title="Follow us on Twitter" rel="nofollow external noopener noreferrer">
+							<i class="bi bi-twitter"></i></a>
+						<a href="https://facebook.com/QuzzaStudio" target="_blank" title="Follow us on Facebook" rel="nofollow external noopener noreferrer">
+							<i class="bi bi-meta"></i></a>
+						<a href="https://github.com/quzzastudio" target="_blank" title="Follow us on Github" rel="nofollow external noopener noreferrer">
+							<i class="bi bi-github"></i></a>
+						<a href="https://www.instagram.com/quzzastudio" target="_blank" title="Follow us on Instagram" rel="nofollow external noopener noreferrer">
+							<i class="bi bi-instagram"></i></a>
+					</div>
+				</div>
+				<div class="col-xl-2 col-lg-4">
+					<h3>Company</h3>
+					<nav class="footer-nav">
+						<ul>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/about/">About</a></li>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/terms/">Terms of service</a></li>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/privacy/">Privacy policy</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-xl-2 col-lg-4">
+					<h3>Popular Templates</h3>
+					<nav class="footer-nav">
+						<ul>
+							<li><i class="bi bi-chevron-right"></i><a href="#">QuzzaTeam</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-xxl-2 col-xl-3 col-lg-4">
+					<h3>Popular Categories</h3>
+					<nav class="footer-nav">
+						<ul>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/bootstrap-5-templates/">Bootstrap 5 Templates</a></li>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/website-templates/">Website Templates</a></li>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/bootstrap-one-page-templates/">One Page Template</a></li>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/bootstrap-portfolio-templates/">Portfolio Templates</a></li>
+							<li><i class="bi bi-chevron-right"></i><a href="https://www.quzzastudio.com/p/free-website-templates/">Free Website Templates</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="copyright text-center"><?=$app_copyright;?> Copyright &copy; 2022 <a href="https://www.quzzastudio.com">QuzzaStudio</a></div>
+	</div>
+</footer>
+
 
 </body>
 </html>
