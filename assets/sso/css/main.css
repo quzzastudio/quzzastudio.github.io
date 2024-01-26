@@ -12183,7 +12183,7 @@ input[type=checkbox]:disabled:not([checked]),
   border-color: #F46274;
 }
 .dropdown.open::after {
-  background-image: url(./../../images/icons/heroicons/chevron-up-mini.svg);
+  background-image: url(https://quzzastudio.github.io/assets/sso/images/icons/heroicons/chevron-up-mini.svg);
 }
 
 .dropdown.error, .dropdown.loading,
