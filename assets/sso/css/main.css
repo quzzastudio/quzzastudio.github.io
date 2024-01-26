@@ -9229,7 +9229,7 @@ table .cell-double__subtitle {
   text-overflow: ellipsis;
 }
 .dropdown-menu__items-wrapper .dropdown-menu__item::before {
-  content: url(./../../images/icons/menu-flow-middle.svg);
+  content: url(https://quzzastudio.github.io/assets/sso/images/icons/menu-flow-middle.svg);
   position: absolute;
   width: 21px;
   overflow: visible;
@@ -9241,7 +9241,7 @@ table .cell-double__subtitle {
   color: #ffffff;
 }
 .dropdown-menu__items-wrapper .dropdown-menu__item:last-child::before {
-  content: url(./../../images/icons/menu-flow-end.svg);
+  content: url(https://quzzastudio.github.io/assets/sso/images/icons/menu-flow-end.svg);
 }
 .dropdown-menu__items-wrapper.opening {
   overflow: hidden;
@@ -10206,14 +10206,14 @@ select,
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-image: url(./../../images/icons/heroicons/chevron-down-mini.svg);
+  background-image: url(https://quzzastudio.github.io/assets/sso/images/icons/heroicons/chevron-down-mini.svg);
   background-repeat: no-repeat;
   background-position: center right 1rem;
   background-size: 1.5rem;
 }
 
 select:focus {
-  background-image: url(./../../images/icons/heroicons/chevron-up-mini.svg);
+  background-image: url(https://quzzastudio.github.io/assets/sso/images/icons/heroicons/chevron-up-mini.svg);
 }
 
 .dropdown::after,
@@ -10758,7 +10758,7 @@ input[type=file]:not([disabled]):hover {
   width: 100%;
   padding-left: 2.75rem;
   padding-right: 2rem;
-  background-image: url(./../../images/icons/input-search.svg);
+  background-image: url(https://quzzastudio.github.io/assets/sso/images/icons/input-search.svg);
   background-size: 1.25rem;
   background-repeat: no-repeat;
   background-position: 1rem center;
@@ -10767,7 +10767,7 @@ input[type=file]:not([disabled]):hover {
 }
 @media only screen and (max-width: 79.937rem) {
   .form-control.form-control_search input {
-    background-image: url(./../../images/icons/input-search-mini.svg);
+    background-image: url(https://quzzastudio.github.io/assets/sso/images/icons/input-search-mini.svg);
   }
 }
 .form-control.form-control_password {
