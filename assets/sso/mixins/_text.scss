@@ -1,0 +1,17 @@
+@mixin text($text-prefix, $fw: $regular) {
+    @if $text-prefix == "inherit" {
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: inherit;
+        color: inherit;
+    }
+    @else {
+        $thisText: map-get($text, $text-prefix);
+        $fs: nth($thisText, 1);
+        $ln: nth($thisText, 2);
+    
+        font-size: $fs;
+        line-height: $ln;
+        font-weight: $fw;
+    }
+}

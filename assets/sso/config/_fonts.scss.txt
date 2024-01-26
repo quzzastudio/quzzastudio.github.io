@@ -1,0 +1,64 @@
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-SemiBold.woff") format("woff");
+    font-style: normal;
+    font-weight: $semibold;
+}
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-SemiBoldItalic.woff") format("woff");
+    font-style: italic;
+    font-weight: $semibold;
+}
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-Medium.woff") format("woff");
+    font-style: normal;
+    font-weight: $medium;
+}
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-MediumItalic.woff") format("woff");
+    font-style: italic;
+    font-weight: $medium;
+}
+
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: $regular;
+}
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-Italic.woff") format("woff");
+    font-style: italic;
+    font-weight: $regular;
+}
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-Light.woff") format("woff");
+    font-style: normal;
+    font-weight: $light;
+}
+
+@font-face {
+    font-family: $poppins;
+    src: 
+        url("https://quantum.sevima.com/assets/fonts/Poppins/Poppins-LightItalic.woff") format("woff");
+    font-style: italic;
+    font-weight: $light;
+}

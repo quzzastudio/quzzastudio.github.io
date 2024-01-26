@@ -1,0 +1,75 @@
+.grid {
+    @include grid();
+}
+
+@mixin grid-factory($thisPrefix: null) {
+    @if $thisPrefix != null {
+        $thisPrefix: "-" + $thisPrefix;
+    }
+    .grid-cols#{$thisPrefix}-default {
+        @include grid-cols();
+    }
+    .grid-rows#{$thisPrefix}-default {
+        @include grid-rows();
+    }
+    @for $i from 1 through $grid-max-default {
+        .cols#{$thisPrefix}-#{$i} {
+            @include grid-cols($i);
+        }
+        .rows#{$thisPrefix}-#{$i} {
+            @include grid-rows($i);
+        }
+    }
+    
+}
+
+@mixin col-factory($thisPrefix: null) {
+    @if $thisPrefix != null {
+        $thisPrefix: "-" + $thisPrefix;
+    }
+
+    @for $i from 1 through $grid-max-default {
+        .col#{$thisPrefix}-#{$i} {
+            @include col-condition($i);
+        }
+        .col-start#{$thisPrefix}-#{$i} {
+            @include col-start-condition($i);
+        }
+        .col-end#{$thisPrefix}-#{$i} {
+          @include col-end-condition($i);
+      }
+    }
+}
+
+@mixin row-factory($thisPrefix: null) {
+    @if $thisPrefix != null {
+        $thisPrefix: "-" + $thisPrefix;
+    }
+
+    @for $i from 1 through $grid-max-default {
+        .row#{$thisPrefix}-#{$i} {
+            @include row-condition($i);
+        }
+        .row-start#{$thisPrefix}-#{$i} {
+            @include row-start-condition($i);
+        }
+        .row-end#{$thisPrefix}-#{$i} {
+          @include row-start-condition($i);
+      }
+    }
+}
+
+@for $i from 1 through length($breakpoint-up-prefixes) {
+    $thisPrefix: nth($breakpoint-up-prefixes, $i);
+    @if $thisPrefix == nth($breakpoint-up-prefixes, 1) {
+        @include col-factory();
+        @include row-factory();
+        @include grid-factory();
+    } @else {
+        @include media-up($thisPrefix) {
+            @include col-factory($thisPrefix);
+            @include row-factory($thisPrefix);
+            @include grid-factory($thisPrefix);
+        }
+    }
+}

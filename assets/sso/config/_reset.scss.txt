@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $poppins;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: block;
+    min-height: 100%;
+    background-color: $neutral-25;
+    color: $black;
+    font-family: $poppins;
+    position: relative;
+}
+
+main {
+    width: 100%;
+}
+
+.container {
+    display: block;
+}
+
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: $black;
+    margin-bottom: 0;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+hr{
+    border-top: $size-1 solid $neutral-100;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    display: block;
+    // margin: $size-24 0;
+}
+/* width scroll */
+::-webkit-scrollbar {
+    cursor: pointer;
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+/* Track  scroll */
+::-webkit-scrollbar-track {
+    background: $white;
+}
+
+/* Handle scroll*/
+::-webkit-scrollbar-thumb {
+    background: $neutral-100;
+    border-radius: 0.5rem;
+    border: $size-4 solid $white;
+}
+
+/* Handle on hover scroll */
+::-webkit-scrollbar-thumb:hover {
+    background: $neutral-200;
+}

@@ -1,0 +1,5 @@
+@mixin ic-size ($font-size) {
+    font-size: ic-divide($font-size, $ic-size-scale-base) * 1em; // converts step in sizing scale into an em-based value that's relative to the scale's base
+    line-height: ic-divide(1, $font-size) * 1em; // sets the line-height of the icon back to that of it's parent
+    vertical-align: (ic-divide(6, $font-size) - ic-divide(3, 8)) * 1em; // vertically centers the icon taking into account the surrounding text's descender
+}

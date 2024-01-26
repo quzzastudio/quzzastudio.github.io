@@ -1,0 +1,72 @@
+:root {
+    // Colors
+    --#{$prefix}-primary-100: #{$ocean-blue-100};
+    --#{$prefix}-primary-200: #{$ocean-blue-200};
+    --#{$prefix}-primary-300: #{$ocean-blue-300};
+    --#{$prefix}-primary-400: #{$ocean-blue-400};
+    --#{$prefix}-primary: #{$ocean-blue-400};
+    --#{$prefix}-primary-500: #{$ocean-blue-500};
+    --#{$prefix}-primary-alpha-0-12: #{$ocean-blue-alpha-0-12};
+    --#{$prefix}-primary-alpha-0-08: #{$ocean-blue-alpha-0-08};
+
+    --#{$prefix}-neutral-0: #{$neutral-0};
+    --#{$prefix}-neutral-25: #{$neutral-25};
+    --#{$prefix}-neutral-50: #{$neutral-50};
+    --#{$prefix}-neutral-100: #{$neutral-100};
+    --#{$prefix}-neutral-200: #{$neutral-200};
+    --#{$prefix}-neutral-300: #{$neutral-300};
+    --#{$prefix}-neutral-400: #{$neutral-400};
+    --#{$prefix}-neutral-500: #{$neutral-500};
+
+    --#{$prefix}-success-100: #{$success-100};
+    --#{$prefix}-success-200: #{$success-200};
+    --#{$prefix}-success-300: #{$success-300};
+    --#{$prefix}-success: #{$success-300};
+    --#{$prefix}-success-400: #{$success-400};
+    --#{$prefix}-success-500: #{$success-500};
+
+    --#{$prefix}-warning-100: #{$warning-100};
+    --#{$prefix}-warning-200: #{$warning-200};
+    --#{$prefix}-warning-300: #{$warning-300};
+    --#{$prefix}-warning: #{$warning-300};
+    --#{$prefix}-warning-400: #{$warning-400};
+    --#{$prefix}-warning-500: #{$warning-500};
+
+    --#{$prefix}-error-100: #{$error-100};
+    --#{$prefix}-error-200: #{$error-200};
+    --#{$prefix}-error-300: #{$error-300};
+    --#{$prefix}-error: #{$error-300};
+    --#{$prefix}-error-400: #{$error-400};
+    --#{$prefix}-error-500: #{$error-500};
+
+    --#{$prefix}-helper-100: #{$helper-100};
+    --#{$prefix}-helper-200: #{$helper-200};
+    --#{$prefix}-helper-300: #{$helper-300};
+    --#{$prefix}-helper: #{$helper-300};
+    --#{$prefix}-helper-400: #{$helper-400};
+    --#{$prefix}-helper-500: #{$helper-500};
+
+    --#{$prefix}-shadow-outer-sm : #{$outer-shadow-sm};
+    --#{$prefix}-shadow-outer-lg : #{$outer-shadow-lg};
+    --#{$prefix}-shadow-inner-sm : #{$inner-shadow-sm};
+
+    // Size
+    @each $size, $value in $sizes {
+        --#{$prefix}-size-#{$size}: #{$value};
+    }
+
+    // Space
+    @each $space, $value in $spaces {
+        --#{$prefix}-space-#{$space}: #{$value};
+    }
+
+    //  Breakpoint
+    @each $breakpoint, $value in $breakpoints {
+        --#{$prefix}-breakpoint-#{$breakpoint}: #{$value};
+    }
+
+    // Layout Managerial
+    --#{$prefix}-man-sidebar-gradient-background: none;
+    --#{$prefix}-man-sidebar-illustration-content: none;
+    --#{$prefix}-man-sidebar-badge-background: var(--#{$prefix}-error-400);
+}

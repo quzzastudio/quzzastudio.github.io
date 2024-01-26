@@ -1,0 +1,75 @@
+// [START] Font Face
+@font-face {
+    font-family: 'sevima-icons';
+    src:  url('https://quantum.sevima.com/assets/fonts/Icons/sevima-icons.eot?qgtc6a');
+    src:  url('https://quantum.sevima.com/assets/fonts/Icons/sevima-icons.eot?qgtc6a#iefix') format('embedded-opentype'),
+        url('https://quantum.sevima.com/assets/fonts/Icons/sevima-icons.ttf?qgtc6a') format('truetype'),
+        url('https://quantum.sevima.com/assets/fonts/Icons/sevima-icons.woff?qgtc6a') format('woff'),
+        url('https://quantum.sevima.com/assets/fonts/Icons/sevima-icons.svg?qgtc6a#sevima-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+// [END] Font Face
+
+// [START] Core
+.#{$ic-css-prefix} {
+    font-family: var(--#{$ic-css-prefix}-style-family, '#{$ic-style-family}');
+    font-weight: var(--#{$ic-css-prefix}-style, #{$ic-style});
+}
+  
+.#{$ic-css-prefix} {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--#{$ic-css-prefix}-display, #{$ic-display});
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+// [END] Core
+
+// [START] Sizing
+@for $i from 1 through 10 {
+    .#{$ic-css-prefix}-#{$i}x {
+        font-size: $i * 1em;
+    }
+}
+
+@each $size, $value in $ic-sizes {
+    .#{$ic-css-prefix}-#{$size} {
+        @include ic-size($value);
+    }
+}
+// [END] Sizing
+
+// [START] Fixed Width
+.#{$ic-css-prefix}-fw {
+    text-align: center;
+    width: $ic-fw-width;
+}
+// [END] Fixed Width
+
+// [START] List
+.#{$ic-css-prefix}-ul {
+    list-style-type: none;
+    padding-left: var(--#{$ic-css-prefix}-li-padding, #{$ic-li-padding});
+    margin-left: 0;
+
+    > li { position: relative; }
+}
+  
+.#{$ic-css-prefix}-li {
+    left: calc(var(--#{$ic-css-prefix}-li-width, #{$ic-li-width}) * -1);
+    position: absolute;
+    text-align: center;
+    width: var(--#{$ic-css-prefix}-li-width, #{$ic-li-width});
+    line-height: inherit;
+}
+// [END] List
+
+// [START] Icons init
+@each $name, $icon in $ic-icons {
+    .#{$ic-css-prefix}-#{$name}::before { content: unquote("\"#{ $icon }\""); }
+}
+// [END] Icons ini

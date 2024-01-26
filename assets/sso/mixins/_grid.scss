@@ -1,0 +1,175 @@
+@mixin grid($grid-count : $grid-max-default) {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: dense;
+    column-gap: $space-16;
+    row-gap: $space-16;
+    grid-template-columns: repeat($grid-max-default, 1fr);
+    @include grid-cols();
+    @include grid-rows();
+
+    & > * {
+        box-sizing: border-box;
+        @include col();
+        @include row();
+
+        & > * {
+            block-size: 100%;
+        }
+    }
+}
+
+@mixin grid-cols($grid-col: $grid-max-default) {
+    grid-template-columns: repeat($grid-col, 1fr);
+}
+
+@mixin grid-rows($grid-row: auto) {
+    grid-template-rows: repeat($grid-row, 1fr);
+}
+
+@mixin col-condition($col-number) {
+    @if type-of($col-number) ==
+        number and
+        $col-number !=
+        0 and
+        $col-number <=
+        $grid-max-default
+    {
+        grid-column: span $col-number;
+    } @else if $col-number == "default" {
+        grid-column: span 1;
+    } @else {
+        @warn "Column number must be the string 'auto' or a number between 0 and #{$grid-max-default}";
+    }
+}
+@mixin row-condition($row-number) {
+    @if type-of($row-number) ==
+        number and
+        $row-number !=
+        0 and
+        $row-number <=
+        $grid-max-default
+    {
+        grid-row: span $row-number;
+    } @else if $row-number == "default" {
+        grid-row: auto;
+    } @else {
+        @warn "Row number must be the string 'auto' or a number between 0 and #{$grid-max-default}";
+    }
+}
+
+@mixin col-start-condition($start-number) {
+    @if type-of($start-number) ==
+        number and
+        $start-number !=
+        0 and
+        $start-number <=
+        $grid-max-default
+    {
+        grid-column-start: $start-number + 1;
+    } @else {
+        @warn "Column start number must be a number between 0 and #{$grid-max-default}";
+    }
+}
+
+@mixin row-start-condition($start-number) {
+    @if type-of($start-number) ==
+        number and
+        $start-number !=
+        0 and
+        $start-number <=
+        $grid-max-default
+    {
+        grid-row-start: $start-number + 1;
+    } @else {
+        @warn "Row start number must be a number between 0 and #{$grid-max-default}";
+    }
+}
+
+@mixin col-end-condition($end-number) {
+    @if type-of($end-number) ==
+        number and
+        $end-number !=
+        0 and
+        $end-number <=
+        $grid-max-default
+    {
+        grid-column-end: $end-number + 1;
+    } @else {
+        @warn "Column end number must be a number between 0 and #{$grid-max-default}";
+    }
+}
+
+@mixin row-end-condition($end-number) {
+    @if type-of($end-number) ==
+        number and
+        $end-number !=
+        0 and
+        $end-number <=
+        $grid-max-default
+    {
+        grid-row-end: $end-number;
+    } @else {
+        @warn "Row end number must be a number between 0 and #{$grid-max-default}";
+    }
+}
+
+@mixin col($breakpoint: nth($breakpoint-up-prefixes, 1), $col-number: "default") {
+    @if $breakpoint == nth($breakpoint-up-prefixes, 1) {
+        @include col-condition($col-number);
+    } @else {
+        @include media-up($breakpoint) {
+            @include col-condition($col-number);
+        }
+    }
+}
+
+@mixin col-start($breakpoint: nth($breakpoint-up-prefixes, 1), $start-number: 0) {
+    @if $breakpoint == nth($breakpoint-up-prefixes, 1) {
+        @include col-start-condition($start-number);
+    } @else {
+        @include media-up($breakpoint) {
+            @include col-start-condition($start-number);
+        }
+    }
+}
+@mixin col-end($breakpoint: nth($breakpoint-up-prefixes, 1), $end-number: 0) {
+    @if $breakpoint == nth($breakpoint-up-prefixes, 1) {
+        @include col-end-condition($end-number);
+    } @else {
+        @include media-up($breakpoint) {
+            @include col-end-condition($end-number);
+        }
+    }
+}
+
+@mixin row($breakpoint: nth($breakpoint-up-prefixes, 1), $row-number: "default") {
+    @if $breakpoint == nth($breakpoint-up-prefixes, 1) {
+        @include row-condition($row-number);
+    } @else {
+        @include media-up($breakpoint) {
+            @include row-condition($row-number);
+        }
+    }
+}
+
+@mixin row-start($breakpoint: nth($breakpoint-up-prefixes, 1), $start-number: 0) {
+    @if $breakpoint == nth($breakpoint-up-prefixes, 1) {
+        @include row-start-condition($start-number);
+    } @else {
+        @include media-up($breakpoint) {
+            @include row-start-condition($start-number);
+        }
+    }
+}
+@mixin row-end($breakpoint: nth($breakpoint-up-prefixes, 1), $end-number: 0) {
+    @if $breakpoint == nth($breakpoint-up-prefixes, 1) {
+        @include row-end-condition($end-number);
+    } @else {
+        @include media-up($breakpoint) {
+            @include row-end-condition($end-number);
+        }
+    }
+}
