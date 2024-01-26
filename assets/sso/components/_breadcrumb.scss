@@ -1,0 +1,55 @@
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    @include text("12", $medium);
+
+    .breadcrumb__item {
+        display: flex;
+        align-items: center;
+        height: fit-content;
+        cursor: default;
+        a {
+            display: inline-flex;
+            gap: $space-4;
+            padding: 0 $space-4;
+            align-items: center;
+            color: $black;
+            border-radius: $size-8;
+            &:hover {
+                text-decoration-line: underline;
+                border-radius: $size-8;
+            }
+          
+        }
+        .icon {
+            font-size: $size-16;
+            line-height: $size-20;
+        }
+
+        
+
+        + .breadcrumb__item{
+            &:before{
+                font-size: $size-20;
+                line-height: $size-20;
+                font-family: $ic-style-family;
+                color: $neutral-100;
+                content: ic-content($ic-var-chevron-right-mini);
+            }
+
+            &.active{
+                padding-left: 0;
+            }
+        }
+
+        &.active {
+            @include text("12",$regular);
+            color: $neutral-300;
+            display: inline-flex;
+            gap: $space-4;
+            padding: 0 $space-4;
+            align-items: center;
+        }
+    }
+}

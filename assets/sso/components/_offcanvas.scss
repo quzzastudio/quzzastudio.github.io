@@ -1,0 +1,111 @@
+.offcanvas {
+    position: fixed;
+    // bottom: 0;
+    top: 0;
+    right: 0;
+    z-index: 401;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 100%;
+    color: $black;
+    // visibility: hidden;
+    background-color: $white;
+    background-clip: padding-box;
+    outline: 0;
+    transition: transform .3s ease-in-out;
+    // padding: $space-24 $space-32;
+    border-bottom: 1px solid $neutral-100;
+    max-width: 480px;
+    max-height: 100vh;
+
+    .offcanvas__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $space-24 $space-32;
+        border-bottom: 1px solid $neutral-100;
+        position: relative;
+
+        .offcanvas__header-title {
+            @include text("16", $semibold);
+            color: $black;
+        }
+
+        .offcanvas__header-subtitle {
+            @include text("14", $medium);
+            color: $black;
+        }
+
+        .offcanvas__header-close {
+            position: absolute;
+            top: 50%;
+            left: -23px;
+            transform: translateY(-50%);
+            transition: background-color .3s ease-in-out;
+            z-index: 402;
+            background-color: $white;
+
+            &:hover {
+                cursor: pointer;
+                border-radius: 50%;
+                filter: brightness(0.8);
+            }
+        }
+    }
+
+    .offcanvas__body {
+        padding: $space-32 $space-24;
+        overflow-y: auto;
+
+        .grid {
+            padding: 0 !important;
+
+            .col-12 {
+                &:first-child {
+                   margin: auto;
+                }
+            }
+
+            .list-item {
+                padding-bottom: 0 !important;
+            }
+
+            .list-accordion {
+                .accordion__item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $space-24;
+
+                    &:first-child {
+                        padding-bottom: $space-24;
+                    }
+                    .accordion__item-header {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        &:hover {
+                            cursor: pointer;
+                            .accordion__item-title,
+                            .accordion__item-action {
+                                color: $primary;
+                            }
+                        }
+
+                        .accordion__item-title {
+                            @include text("16", $semibold);
+                        }
+
+                        .accordion__item-action {
+                            @include text("20", $medium);
+                            transition: transform .3s ease-in-out;
+                            background: none;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

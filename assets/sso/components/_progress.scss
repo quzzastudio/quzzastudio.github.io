@@ -1,0 +1,108 @@
+// Progress Circle 
+.progress-circle {
+    position: relative;
+    height: $size-64;
+    width: $size-64;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $neutral-200;
+
+    &:before {
+        content: "";
+        position: absolute;
+        height: calc($size-64 - $size-12);
+        width: calc($size-64 - $size-12);
+        border-radius: 50%;
+        background-color: $white;
+        display: calc($size-64 - $size-12);
+    }
+
+    &__label {
+        @include text("12");
+        color: $black;
+        position: relative;
+    }
+
+}
+// Progress Bar 
+.progress {
+	--#{$prefix}-progress-percent : 0%;
+    display: flex;
+    gap: $space-12;
+    align-items: center;
+    .error{
+        &:before{
+            background-color: $error-400 !important;
+        }
+    }
+    .warning{
+        &:before{
+            background-color: $warning-400;
+        }
+    }
+    .success{
+        &:before{
+            background-color: $success-400;
+        }
+    }
+    &__bar {
+        width: 100%;
+        display: block;
+        height: $size-8;
+        background-color: $neutral-50;
+        border-radius: $size-16;
+        position: relative;
+        @include media-down("md") {
+            height: $size-4;
+        }
+
+        &:before {
+            content: "";
+            background-color: var(--#{$prefix}-primary-400);
+            height: $size-8;
+            position: absolute;
+            border-radius: $size-16;
+			width: var(--#{$prefix}-progress-percent);
+            @include media-down("md") {
+                height: $size-4;
+            }
+        }
+    }
+
+    &__label {
+        @include text("13");
+        color: $neutral-500;
+        @include media-down("md") {
+            @include text("12");
+        }
+    }
+}
+.progress-small {
+    .progress__bar {
+        height: $size-4 !important;
+        .error{
+            &:before{
+                background-color: $error-400 !important;
+            }
+        }
+        .warning{
+            &:before{
+                background-color: $warning-400;
+            }
+        }
+        .success{
+            &:before{
+                background-color: $success-400;
+            }
+        }
+        &:before {
+            height: $size-4;
+        }
+    }
+    .progress__label {
+        @include text("12");
+        color: $neutral-500;
+    }
+}

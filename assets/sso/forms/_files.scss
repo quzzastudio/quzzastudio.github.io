@@ -1,0 +1,310 @@
+
+.upload-draggable {
+    position: relative;
+    width: 100%;
+    padding: $space-24;
+    border-radius: $size-8;
+    border: $size-1 dashed $neutral-100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &.upload-inline{
+        padding: $size-16;
+    }
+    &:hover:not(.upload-draggable_disabled){
+        background: $neutral-25;
+        border: $size-1 solid $neutral-100;
+        .upload-draggable__sub-title,
+        .upload-draggable__support {
+            color: $neutral-400;
+        }
+        .upload-draggable__icon {
+            background: var(--#{$prefix}-primary-100);
+        }
+    }
+    &.is-active{
+        background: var(--#{$prefix}-primary-100);
+        border: $size-1 solid var(--#{$prefix}-primary);
+        .upload-draggable__sub-title,
+        .upload-draggable__support {
+            color: $neutral-400;
+        }
+        .upload-draggable__icon {
+            background: var(--#{$prefix}-primary) !important;
+            span{
+                color: $neutral-0 !important;
+            }
+        }
+    }
+    &.upload-draggable_disabled {
+        cursor: no-drop;
+        border: $size-1 solid $neutral-50;
+        background: $neutral-25;
+        input[type="file"] {
+            display: none;
+        }
+        .upload-draggable__icon {
+            background: $neutral-50 !important;
+            .icon {
+                color: $neutral-200 !important;
+            }
+        }
+        .upload-draggable__title {
+            color: $neutral-200 !important;
+        }
+
+        .upload-draggable__sub-title {
+            color: $neutral-200 !important;
+        }
+
+        .upload-draggable__support {
+            color: $neutral-200 !important;
+        }
+    }
+
+    .upload-draggable__box {
+        opacity: 1;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+
+        input[type="file"] {
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .upload-draggable__icon {
+            width: $size-48;
+            height: $size-48;
+            min-width: $size-48;
+            min-height: $size-48;
+            border-radius: 50%;
+            background: var(--#{$prefix}-primary-100);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include media-down("md") {
+                width: $size-40;
+                height: $size-40;
+                min-width: $size-40;
+                min-height: $size-40;
+            }
+            .icon {
+                font-size: $size-24;
+                line-height: $size-24;
+                color: var(--#{$prefix}-primary-400);
+                @include media-down("md") {
+                    font-size: $size-20;
+                    line-height: $size-20;
+                }
+            }
+        }
+
+        .upload-draggable__title {
+            padding-top: $size-20;
+            @include text("13", $semibold);
+            color: var(--#{$prefix}-primary);
+            @include media-down("md") {
+                padding-top: $size-12;
+                @include text("12", $semibold);
+            }
+        }
+
+        .upload-draggable__sub-title {
+            @include text("12");
+            padding-top: $space-8;
+            color: $neutral-400;
+            @include media-down("md") {
+                padding-top: $size-4;
+                @include text("11");
+            }
+        }
+
+        .upload-draggable__support {
+            @include text("12");
+            padding-top: $space-4;
+            color: $neutral-400;
+            @include media-down("md") {
+                padding-top: $size-1;
+                @include text("11");
+            }
+        }
+    }
+    .upload-draggable__box-inline {
+        opacity: 1;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 10;
+
+        input[type="file"] {
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+        }
+        .upload-draggable__icon {
+            width: $size-48;
+            height: $size-48;
+            min-width: $size-48;
+            min-height: $size-48;
+            border-radius: 50%;
+            background: var(--#{$prefix}-primary-100);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include media-down("md") {
+                width: $size-40;
+                height: $size-40;
+                min-width: $size-40;
+                min-height: $size-40;
+            }
+
+            .icon {
+                font-size: $size-24;
+                line-height: $size-24;
+                color: var(--#{$prefix}-primary-400);
+                @include media-down("md") {
+                    font-size: $size-20;
+                    line-height: $size-20;
+                }
+            }
+        }
+        .inline-upload{
+            display: flex;
+            gap: $size-16;
+            @include media-down("md") {
+                gap: $size-12;
+            }
+            .upload-draggable__title {
+                @include text("13", $semibold);
+                color: var(--#{$prefix}-primary);
+                @include media-down("md") {
+                    @include text("12", $semibold);
+                }
+            }
+    
+            .upload-draggable__sub-title {
+                @include text("12");
+                color: $neutral-400;
+                @include media-down("md") {
+                    @include text("11");
+                }
+            }
+    
+            .upload-draggable__support {
+                @include text("12");
+                padding-top: $space-4;
+                color: $neutral-400;
+                @include media-down("md") {
+                    padding-top: 2px;
+                    @include text("11");
+                }
+            }
+        }
+    }
+    .upload-draggable__uploading,
+    .upload-draggable__success,
+    .upload-draggable__error {
+        @include text("14", $semibold);
+        text-align: center;
+        padding: $space-16 $space-24;
+        line-height: $size-24;
+        color: $black;
+        z-index: 5;
+        display: none;
+        position: absolute;
+        // display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: $space-4;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        span {
+            color: var(--#{$prefix}-primary);
+        }
+    }
+    .upload-draggable__uploading {
+        flex-wrap: wrap;
+        gap: $space-8;
+    }
+}
+.attachment{
+    background-color: $neutral-0;
+    border-radius: $size-8;
+    padding: $size-12;
+    border: $size-1 solid $neutral-100;
+    display: flex;
+    justify-content: space-between;
+    &.loading{
+        background-color: $neutral-25;
+        border: $size-1 solid $neutral-25;
+    }
+    .attachment__wrapper{
+        width: 100%;
+        .attachment__title{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .title{
+                @include text("13", $medium);
+                margin-bottom: $size-4;
+            }
+            .attachment__dismiss{
+                width: $size-16;
+                height: $size-16;
+                min-width: $size-16;
+                min-height: $size-16;
+                gap: $size-12;
+                span{
+                    font-size: $size-16;
+                    color: $neutral-300;
+                }
+            }
+        }
+        .attachment__description{
+            @include text("13");
+            color: $neutral-300;
+            .error{
+                @include text("13");
+                color: $error-400 !important;
+            }
+            .success{
+                color: $success-400 !important;
+            }
+        }
+        .progress{
+            margin-top: 8px;
+        }
+    }
+    .attachment__action{
+        display: flex;
+        gap: 4px;
+        align-items: center;
+    }
+}

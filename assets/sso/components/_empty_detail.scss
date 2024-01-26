@@ -1,0 +1,66 @@
+.empty-detail {
+    width: 100%;
+    padding: #{$space-80 - $space-16} 0;
+    display: flex;
+    justify-content: center;
+
+    @include media-up("lg") {
+        padding: #{$space-80 - $space-24} 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $space-24;
+        padding: 0;
+    }
+
+    &__content {
+        max-width: 256px;
+        display: flex;
+        flex-direction: column;
+        gap: $space-8 0;
+        padding: $space-8;
+
+        h1 {
+            @include text("16", $semibold);
+            color: var(--#{$prefix}-neutral-500);
+        }
+
+        p {
+            @include text("12");
+            color: var(--#{$prefix}-neutral-400);
+        }
+    }
+
+    &__illustration {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 140px;
+        max-height: 105px;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+    &__action {
+        display: flex;
+        justify-content: center;
+        gap: $space-16;
+        padding-top: $space-20;
+
+        .btn {
+            padding: $size-10 $space-12;
+            gap: $size-10;
+
+            @include media-up("lg") {
+                padding: $space-12 $space-20;
+            }
+        }
+    }
+}

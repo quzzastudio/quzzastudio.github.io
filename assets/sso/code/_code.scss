@@ -1,0 +1,37 @@
+.code-snippet {
+    // padding: $space-20 $space-20;
+    width: 100%;
+    overflow: hidden;
+    .block__content {
+        padding: 0;
+    }
+    .code-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $space-4;
+    }
+    .code-script {
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 22px;
+        pre {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: $space-8;
+        }
+        code {
+            font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+            width: 100%;
+            background-color: #141414;
+            color: white;
+            display: block;
+            border-radius: $size-4;
+            // box-shadow: 10px 10px 20px grey, -10px -10px 20px white, 5px 5px 5px black inset;
+            // text-shadow: 5px 5px 5px black, -2px -2px 2px #212121;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    }
+}

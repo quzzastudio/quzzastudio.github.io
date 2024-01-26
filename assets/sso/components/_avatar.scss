@@ -1,0 +1,153 @@
+$avatar-size-2xl: "2xl";
+$avatar-size-xl: "xl";
+$avatar-size-lg: "lg";
+$avatar-size-md: "md";
+$avatar-size-sm: "sm";
+$avatar-size-xs: "xs";
+$avatar-size: (
+    $avatar-size-2xl: $size-64,
+    $avatar-size-xl: $size-56,
+    $avatar-size-lg: $size-48,
+    $avatar-size-md: $size-40,
+    $avatar-size-sm: $size-32,
+    $avatar-size-xs: $size-24,
+);
+$avatar-icon-status-size: (
+    $avatar-size-2xl: $size-20,
+    $avatar-size-xl: $size-18,
+    $avatar-size-lg: $size-16,
+    $avatar-size-md: $size-14,
+    $avatar-size-sm: $size-12,
+    $avatar-size-xs: $size-10,
+);
+$avatar-icon-size: (
+    $avatar-size-2xl: $size-32,
+    $avatar-size-xl: $size-32,
+    $avatar-size-lg: $size-28,
+    $avatar-size-md: $size-24,
+    $avatar-size-sm: $size-20,
+    $avatar-size-xs: $size-16,
+);
+$avatar-text-size: (
+    $avatar-size-2xl: $size-24,
+    $avatar-size-xl: $size-20,
+    $avatar-size-lg: $size-18,
+    $avatar-size-md: $size-16,
+    $avatar-size-sm: $size-14,
+    $avatar-size-xs: $size-12,
+);
+$avatar-profile-size: (
+    $avatar-size-lg: $size-160,
+    $avatar-size-md: $size-96,
+);
+$avatar-profile-icon-size: (
+    $avatar-size-lg: $size-80,
+    $avatar-size-md: $size-48,
+);
+$avatar-profile-text-size: (
+    $avatar-size-lg: $size-60,
+    $avatar-size-md: $size-36,
+);
+$avatar-focused-border-color: var(--#{$prefix}-primary-alpha-0-12);
+$avatar-focused-border-size: $size-4;
+$avatar-background-color: var(--#{$prefix}-primary-100);
+$avatar-text-color: var(--#{$prefix}-primary-300);
+$avatar-icon-color: var(--#{$prefix}-neutral-800);
+$avatar-icon-status-absolute: -$size-2;
+$avatar-icon-status-border-size: $size-2;
+
+.avatar,
+.avatar-profile {
+    --#{$prefix}-avatar-background-color: #{$avatar-background-color};
+    --#{$prefix}-avatar-size: inherit;
+    --#{$prefix}-avatar-text-color: #{$avatar-text-color};
+    --#{$prefix}-avatar-icon-color: #{$avatar-icon-color};
+    --#{$prefix}-avatar-text-size: inherit;
+    --#{$prefix}-avatar-icon-size: inherit;
+    --#{$prefix}-avatar-line-height: inherit;
+
+    width: var(--#{$prefix}-avatar-size);
+    height: var(--#{$prefix}-avatar-size);
+    min-width: var(--#{$prefix}-avatar-size);
+    background-color: var(--#{$prefix}-avatar-background-color);
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+
+    p {
+        font-size: var(--#{$prefix}-avatar-text-size);
+        line-height: var(--#{$prefix}-avatar-line-height);
+        color: var(--#{$prefix}-avatar-text-color);
+        font-weight: $medium;
+        text-transform: uppercase;
+    }
+    .icon {
+        font-size: var(--#{$prefix}-avatar-icon-size);
+        line-height: var(--#{$prefix}-avatar-line-height);
+        color: var(--#{$prefix}-avatar-icon-color);
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+.avatar {
+    --#{$prefix}-avatar-focused-border-color: #{$avatar-focused-border-color};
+    --#{$prefix}-avatar-focused-border-size: #{$avatar-focused-border-size};
+    --#{$prefix}-avatar-icon-status-absolute: #{$avatar-icon-status-absolute};
+    --#{$prefix}-avatar-icon-status-border-size: #{$avatar-icon-status-border-size};
+    --#{$prefix}-avatar-icon-status-size: inherit;
+    position: relative;
+    cursor: pointer;
+
+    .avatar__status-icon {
+        border-radius: 50%;
+        position: absolute;
+        display: flex;
+        background-color: var(--#{$prefix}-avatar-background-color);
+        width: var(--#{$prefix}-avatar-icon-status-size);
+        height: var(--#{$prefix}-avatar-icon-status-size);
+        outline: var(--#{$prefix}-avatar-icon-status-border-size) solid $white;
+        bottom: var(--#{$prefix}-avatar-icon-status-absolute);
+        right: var(--#{$prefix}-avatar-icon-status-absolute);
+
+        .icon {
+            font-size:  var(--#{$prefix}-avatar-icon-status-size);
+            line-height: var(--#{$prefix}-avatar-icon-status-size);
+        }
+    }
+
+    &:active {
+        outline: var(--#{$prefix}-avatar-focused-border-size) solid
+            var(--#{$prefix}-avatar-focused-border-color);
+    }
+
+    @each $size, $data in $avatar-size {
+        &_#{$size} {
+            --#{$prefix}-avatar-size: #{$data};
+            --#{$prefix}-avatar-line-height: #{$data};
+            --#{$prefix}-avatar-icon-status-size: #{map-get(
+                    $avatar-icon-status-size,
+                    $size
+                )};
+            --#{$prefix}-avatar-text-size: #{map-get($avatar-text-size, $size)};
+            --#{$prefix}-avatar-icon-size: #{map-get($avatar-icon-size, $size)};
+        }
+    }
+}
+
+.avatar-profile{
+    outline: $size-4 solid $white;
+    box-shadow: $outer-shadow-lg;
+    @each $size, $data in $avatar-profile-size{
+        &_#{$size} {
+            --#{$prefix}-avatar-size: #{$data};
+            --#{$prefix}-avatar-line-height: #{$data};
+            --#{$prefix}-avatar-text-size: #{map-get($avatar-profile-text-size, $size)};
+            --#{$prefix}-avatar-icon-size: #{map-get($avatar-profile-icon-size, $size)};
+        }
+    }
+}

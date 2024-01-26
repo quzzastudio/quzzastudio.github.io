@@ -1,0 +1,408 @@
+.dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-4 0;
+    cursor: pointer;
+    width: 100%;
+
+    span {
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+        text-overflow: ellipsis;
+    }
+    .dropdown__box-list {
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    &.open {
+        .dropdown__box-list {
+            // NOTE : sebagai referensi untuk menghilangkan height dropdown
+            // display: block;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .dropdown__option {
+            cursor: pointer;
+        }
+    }
+
+    .dropdown__box-list {
+        box-sizing: border-box;
+        transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75),
+            opacity 0.1s linear;
+        box-shadow: 0 $size-4 $size-8 rgba(0, 0, 0, 0.1);
+        border-radius: $size-8;
+        background-color: $white;
+        margin-top: $size-4;
+        padding: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 999;
+        border: $size-1 solid $neutral-100;
+
+        .dropdown__list {
+            max-height: 20.5rem;
+            overflow: auto;
+
+            .dropdown__empty {
+                cursor: default;
+                display: inline-flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                padding: $space-16 0 !important;
+                gap: $space-12;
+                display: none;
+                .dropdown__empty-information {
+                    padding: $space-8;
+                    display: flex;
+                    flex-direction: column;
+                    gap: $space-4;
+
+                    h2 {
+                        color: $black;
+                        @include text("14", $semibold);
+                        padding: 0;
+                    }
+                    p {
+                        color: $neutral-500;
+                        @include text("12");
+                        line-height: $size-22;
+                        padding: 0;
+                    }
+                }
+
+                .dropdown__empty-action {
+                    padding: $space-8;
+                    display: flex;
+                    flex-direction: column;
+                    gap: $space-4;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    .dropdown__box-list:hover {
+        .dropdown__option:not(:hover) {
+            background-color: transparent !important;
+        }
+    }
+
+    .dropdown__search {
+        cursor: default;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $space-8;
+        background: white;
+
+        &.error,
+        &.loading {
+            &::after {
+                top: calc(50% - $size-12);
+            }
+        }
+    }
+
+    .dropdown__search-box {
+        max-height: $size-48;
+    }
+
+    .dropdown__box-list ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .dropdown__option {
+        cursor: default;
+        @include text("14");
+        outline: none;
+        padding: $space-8 $space-16;
+        text-align: left;
+        transition: all 0.2s;
+        transition: font-weight 0.01s;
+        list-style: none;
+
+        &.disabled,
+        &:has(input:disabled) {
+            color: $neutral-300;
+            cursor: not-allowed;
+        }
+        &:hover,
+        &:focus {
+            &:not(.disabled) {
+                font-weight: 600;
+                background-color: var(
+                    --#{$prefix}-primary-alpha-0-12
+                ) !important;
+                color: var(--#{$prefix}-primary-400);
+            }
+            &:has(input:disabled) {
+                font-weight: 400;
+                background-color: $white !important;
+                color: $black;
+            }
+        }
+    }
+
+    .dropdown__option.selected {
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::after {
+            font-family: $ic-style-family;
+            content: ic-content($ic-var-check-circle-mini);
+            font-size: $size-18;
+            line-height: $size-18;
+            font-weight: 400 !important;
+            width: $size-18;
+            position: absolute;
+            right: $space-16;
+            color: var(--#{$prefix}-primary);
+        }
+    }
+
+    .dropdown__option.selected:focus {
+        font-weight: 600;
+        background-color: var(--#{$prefix}-primary-alpha-0-12) !important;
+        color: var(--#{$prefix}-primary-400);
+    }
+
+    a {
+        color: #aaa;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+        color: #666;
+    }
+    &.error {
+        border-color: $error-300 !important;
+
+        &:focus {
+            border-color: $error-300 !important;
+            outline: 0;
+            box-shadow: 0 0 0 0.125rem rgb($error-300, 0.12) !important;
+        }
+
+        &:disabled,
+        &:disabled:hover,
+        &:disabled:focus,
+        &:disabled:active {
+            box-shadow: none;
+            border-color: $error-300;
+        }
+    }
+
+    &.open {
+        &::after {
+            background-image: url(./../../images/icons/heroicons/chevron-up-mini.svg);
+        }
+    }
+}
+
+.dropdown,
+.dropdown__search {
+    &.error, &.loading {
+        background-image: none !important;
+    }
+
+    &.error::after, &.loading::after {
+        background: none !important;
+    }
+}
+
+.dropdown_select {
+    padding-right: $size-52;
+}
+
+.dropdown_filter {
+    .dropdown__option {
+        display: flex;
+        gap: $space-12;
+        align-items: center;
+        &:has(.dropdown__label-radio),
+        &:has(.dropdown__label-checkbox) {
+            padding: 0;
+        }
+        .dropdown__checkbox {
+            display: none;
+        
+            &:hover:not([disabled]) + label::before {
+                border-color: var(--#{$prefix}-primary);
+            }
+        
+            &:active + label::before {
+                filter: brightness(90%);
+            }
+        
+            &:checked + label::before {
+                background-color: var(--#{$prefix}-primary);
+                border-color: var(--#{$prefix}-primary);
+            }
+        
+            &:checked[type="checkbox"] + label::before {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+            }
+        
+            &:checked:hover:not([disabled]) + label::before {
+                background-color: var(--#{$prefix}-primary-400);
+                border-color: var(--#{$prefix}-primary-400);
+            }
+        
+            &:checked:disabled + label::before {
+                pointer-events: none;
+                filter: none;
+                background-color: var(--#{$prefix}-primary);
+                border-color: var(--#{$prefix}-primary);
+                opacity: 0.7;
+            }
+        
+            &:disabled:not([checked]) + label::before {
+                background: $neutral-200;
+                border: $size-1 solid $neutral-300;
+            }
+            
+            &:disabled + label::before,
+            &:disabled + label {
+                cursor: not-allowed;
+            }
+
+            &:disabled + label {
+                @include text("14");
+                color: $neutral-300;
+                cursor: not-allowed;
+            }
+        }
+        
+        .dropdown__label-checkbox {
+            @include text("14");
+            cursor: pointer;
+            position: relative;
+            font-weight: inherit;
+            width: 100%;
+            padding: $space-8 $space-16 $space-8 $size-44 !important;
+            &::before {
+                content: "";
+                position: absolute;
+                width: $size-16;
+                height: $size-16;
+                padding: 0;
+                margin: 0;
+                top: $space-12;
+                left: $space-16;
+                background-color: $white;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                border: $size-1 solid $neutral-300;
+                appearance: none;
+                border-radius: $size-4;
+                transition: all 0.15s ease;
+            }
+        }
+
+        .dropdown__radio {
+            &:checked:hover:not([disabled]) + label::before {
+                border-color: var(--#{$prefix}-primary-400);
+            }
+
+            &:disabled + label {
+                @include text("14");
+                color: $neutral-300;
+                cursor: not-allowed;
+            }
+
+            &:checked:disabled + label::before {
+                background: $neutral-100;
+                border: 0.313rem solid var(--#{$prefix}-primary-alpha-0-12);
+            }
+        }
+        .dropdown__label-radio {
+            font-weight: inherit;
+            width: 100%;
+            padding: $space-8 $space-16 $space-8 $size-44 !important;
+            &::before {
+                top: $space-20;
+                left: $space-16;
+                width: $size-16;
+                height: $size-16;
+            }
+        }
+    }
+}
+
+.dropdown_autocomplete {
+    position: relative;
+    padding: 0 !important;
+    outline: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+
+    &:hover,
+    &:active,
+    &:focus {
+        padding: 0 !important;
+        outline: 0 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+
+    &::after {
+        content: "";
+        z-index: 10;
+        display: flex;
+        position: absolute;
+        top: 0;
+        background-position: center !important;
+        right: 1rem;
+        width: $size-24;
+        height: 100%;
+    }
+
+    &:hover {
+        .dropdown__clear-search-box {
+            opacity: 1;
+        }
+    }
+
+    .dropdown__clear-search-box {
+        z-index: 22;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: $space-16;
+        background-position: center !important;
+        background-color: $primary-200;
+        right: $space-20;
+        width: $size-16;
+        height: $size-16;
+        border-radius: 50%;
+        opacity: 0;
+
+        &::before {
+            @extend .icon;
+            content: ic-content($ic-var-x-mark-mini);
+            font-size: $size-16;
+            line-height: $size-16;
+            color: $white;
+        }
+
+        &:hover {
+            opacity: 1;
+            background-color: $neutral-400;
+        }
+    }
+}

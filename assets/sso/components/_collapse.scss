@@ -1,0 +1,20 @@
+.accordion {
+    display: block;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .5s cubic-bezier(0, 1, 0, 1);; 
+  
+    &.show {
+      max-height: 99em;
+      transition: max-height .5s ease-in-out;
+    }
+}
+  
+.block {
+    padding: 0;
+    
+    &__content {
+      padding: 1.5em;
+      height: 100%;
+    }
+}

@@ -1,0 +1,114 @@
+.badge {
+    width: fit-content;
+    padding: $size-4 $size-12;
+    display: flex;
+    align-items: center;
+    gap: $size-4;
+    background: transparent;
+    border: 1px solid transparent;
+    @include text ("12", $semibold);
+    color: $white;
+    border-radius: $size-4;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    outline: none;
+    
+    &.icon {
+        font-size: $size-16;
+    }
+
+    &.badge_default {
+        background: $neutral-400;
+    }
+
+    &.badge_helper {
+        background: $helper;
+    }
+
+    &.badge_success {
+        background: $success;
+    }
+
+    &.badge_warning {
+        background: $warning;
+    }
+
+    &.badge_danger {
+        background: $error;
+    }
+
+    // Badge Size Small
+    &.badge_small {
+        padding: $size-2 $size-8;
+        @include text ("11", $semibold);
+
+        &.icon {
+            font-size: $size-12;
+        }
+    }
+
+    // Badge Rounded
+    &.badge_rounded {
+        border-radius: 50px;
+    }
+
+    // Badge Outline
+    &.badge_outline {
+        background: white;
+
+        &-default {
+            color: $neutral-400;
+            border-color: $neutral-400;
+        }
+
+        &-helper {
+            color: $helper;
+            border-color: $helper;
+        }
+
+        &-success {
+            color: $success;
+            border-color: $success;
+        }
+
+        &-warning {
+            color: $warning;
+            border-color: $warning;
+        }
+
+        &-danger {
+            color: $error;
+            border-color: $error;
+        }
+    }
+
+    // Badge Secondary
+    &.badge_secondary {
+
+        &-default {
+            color: $neutral-400;
+            background: $neutral-100;
+        }
+
+        &-helper {
+            color: $helper;
+            background: $helper-100;
+        }
+
+        &-success {
+            color: $success;
+            background: $success-100;
+        }
+
+        &-warning {
+            color: $warning;
+            background: $warning-100;
+        }
+
+        &-danger {
+            color: $error;
+            background: $error-100;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+.pagination {
+    display: inline-flex;
+    gap: 0;
+    
+    button,
+    & &__item,
+    & &__ellipsis {
+        min-width: $size-36;
+        height: $size-36;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--#{$prefix}-neutral-0);
+        border: none;
+        border-radius: $size-4;
+        cursor: pointer;
+
+        color: var(--#{$prefix}-neutral-400);
+        @include text("13", $medium);
+
+        a, p {
+            @include text("inherit");
+            min-width: $size-36;
+            height: $size-36;
+            padding: 0 $size-6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &:hover {
+            background-color: var(--#{$prefix}-neutral-50);
+        }
+
+        &:active {
+            background-color: var(--#{$prefix}-primary-100);
+        }
+
+        &.active {
+            cursor: default;
+            background-color: var(--#{$prefix}-primary-400);
+            color: var(--#{$prefix}-neutral-0);
+        }
+    }
+
+    & &__ellipsis {
+        cursor: default;
+    }
+
+    & &__list {
+        display: inline-flex;
+        gap: 0;
+        list-style: none;
+    }
+
+    & &__button-previous,
+    & &__button-next {
+        & a::before {
+            font-family: $ic-style-family;
+            @include ic-size(24);
+        }
+
+        &:disabled {
+            &,
+            & a{
+                cursor: default;
+            }
+            background-color: var(--#{$prefix}-neutral-0);
+            a::before {
+                color: var(--#{$prefix}-neutral-200);
+            }
+        }
+    }
+
+    & &__button-previous {
+        & a::before {
+            content: ic-content($ic-var-chevron-left-mini);
+        }
+    }
+
+    & &__button-next {
+        & a::before {
+            content: ic-content($ic-var-chevron-right-mini);
+        }
+    }
+}

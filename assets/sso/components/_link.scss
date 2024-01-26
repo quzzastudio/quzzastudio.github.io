@@ -1,0 +1,25 @@
+a.link{
+    @include text("13", $medium);
+    color: var(--#{$prefix}-primary-400);
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: $size-4;
+    text-decoration: underline;
+
+    &:hover {
+        color: var(--#{$prefix}-primary-500);
+    }
+
+    &:active {
+        color: var(--#{$prefix}-primary-500);
+    }
+
+    &:disabled, &.disabled {
+        color: var(--#{$prefix}-primary-200);
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+

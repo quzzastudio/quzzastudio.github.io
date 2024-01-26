@@ -1,0 +1,42 @@
+@keyframes loader {
+    to {
+        transform: rotate(360deg) #{"/* rtl:ignore */"};
+    }
+}
+
+.loader {
+    display: inline-block;
+    width: var(--#{$prefix}-loader-width);
+    height: var(--#{$prefix}-loader-height);
+    vertical-align: var(--#{$prefix}-loader-vertical-align);
+    border-radius: 50%;
+    animation: var(--#{$prefix}-loader-animation-speed) linear infinite var(--#{$prefix}-loader-animation-name);
+
+    --#{$prefix}-loader-width: #{$size-24};
+    --#{$prefix}-loader-height: #{$size-24};
+    --#{$prefix}-loader-vertical-align: -.125em;
+    --#{$prefix}-loader-background:
+        radial-gradient(farthest-side, var(--#{$prefix}-primary) 90%, rgba(0, 0, 0, 0)) center top / 0.188rem 0.188rem no-repeat,
+        radial-gradient(farthest-side, var(--#{$prefix}-primary) 90%, rgba(0, 0, 0, 0)) center right / 0.188rem 0.188rem no-repeat,
+        radial-gradient(farthest-side at left bottom, rgba(0, 0, 0, 0) calc(100% - 0.188rem), var(--#{$prefix}-primary) calc(100% - 0.163rem), var(--#{$prefix}-primary) 99%, rgba(0, 0, 0, 0)) right top / 50% 50% content-box content-box,
+        radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(100% - 0.188rem), #{$neutral-200} 0);
+    --#{$prefix}-loader-animation-speed: 0.9s;
+    --#{$prefix}-loader-animation-name: loader;
+    background: var(--#{$prefix}-loader-background) !important;
+    background-repeat: no-repeat !important;
+}
+.loader_lg {
+    --#{$prefix}-loader-width: #{$size-64};
+    --#{$prefix}-loader-height: #{$size-64};
+    --#{$prefix}-loader-background: 
+        radial-gradient(farthest-side, var(--#{$prefix}-primary) 90%, rgba(0, 0, 0, 0)) center top / #{$size-6} #{$size-6} no-repeat,
+        radial-gradient(farthest-side, var(--#{$prefix}-primary) 90%, rgba(0, 0, 0, 0)) center right / #{$size-6} #{$size-6} no-repeat,
+        radial-gradient(farthest-side at left bottom, rgba(0, 0, 0, 0) calc(100% - #{$size-6}), var(--#{$prefix}-primary) calc(100% - 0.325rem), var(--#{$prefix}-primary) 99%, rgba(0, 0, 0, 0)) right top / 50% 50% content-box content-box,
+        radial-gradient(farthest-side, rgba(0, 0, 0, 0) #{calc(100% - $size-6)}, #{$neutral-200} 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-border {
+        --#{$prefix}-loader-animation-speed: #{0.9s * 2};
+    }
+}

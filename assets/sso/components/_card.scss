@@ -1,0 +1,198 @@
+.card {
+    width: 100%;
+    background: var(--qn-neutral-0);
+    border: 1px solid var(--qn-neutral-50);
+    border-radius: $size-12;
+    box-shadow: $card-shadow;
+    min-height: $size-20;
+
+    // NOTE: dihapus, karena card ini harusnya bersifat global bukan untuk case tertentu
+    // &:hover {
+    //     box-shadow: $outer-shadow-lg;
+    // }
+    // &:focus {
+    //     border: 4px solid $ocean-blue-alpha-0-12;
+    // }
+    .card__title {
+        @include text("20", $semibold);
+        color: $black;
+        padding-bottom: $size-8;
+    }
+
+    .card__subtitle {
+        @include text("14");
+        color: $neutral-400;
+    }
+
+    .card__text {
+        @include text("12");
+        color: $neutral-500;
+    }
+
+    &_img-top img {
+        width: 100%;
+        border-radius: $size-8 $size-8 0 0;
+    }
+    .card__body,
+    .card__footer {
+        padding: $space-16;
+    
+        @include media-up("lg") {
+            padding: $space-24;
+        }
+    }
+
+    .card__footer {
+        border: none;
+        border-top: 1px var(--#{$prefix}-neutral-100) solid;
+
+        .card__footer-inline,
+        .card__footer-left,
+        .card__footer-right {
+            width: 100%;
+            display: inline-flex;
+            gap: $size-12;
+        }
+        .card__footer-left {
+            justify-content: start;
+        }
+        .card__footer-right {
+            justify-content: end;
+        }
+    }
+
+    &.card-details {
+        padding: 0;
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: $space-24;
+            border-bottom: 1px solid $neutral-100;
+
+            .card-title {
+                @include text("16", $semibold);
+                color: $black;
+                padding-bottom: 0;
+            }
+        }
+
+        .card-body  {
+            padding: 0;
+            .avatar-profile_lg {
+                --qn-avatar-size: 6rem;
+                --qn-avatar-line-height: 6rem;    
+                --qn-avatar-text-size: 2.25rem;
+            }
+
+            .col-2 {
+                &:first-child {
+                    margin: auto;
+                }
+            }
+
+            .grid {
+                &.row-col-data {
+                    padding: $space-20 $space-24;
+                    .col-data {
+                        &.bordered {
+                            border-left: 1px dashed $neutral-100;
+                            padding-left: $space-24;
+                        }
+
+                        @include media-up("md") {
+                            &.bordered {
+                                &:nth-child(2) {
+                                    border-left: none;
+                                    padding-left: 0;
+                                }
+                            }
+                        }
+    
+                        .col-data__label {
+                            @include text("14", $medium);
+                            color: $neutral-500;
+                            padding-bottom: $space-4;
+                        }
+            
+                        .col-data__value {
+                            @include text("14");
+                            color: $neutral-400;
+                        }   
+        
+                        .col-data__top {
+                            padding-bottom: $space-16;
+                        }
+                    }
+                }
+            }
+        
+            .group-list {
+                list-style: none;
+                padding: $space-20 $space-24;
+                .list-item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: $space-16;
+                    border-bottom: 1px dashed $neutral-100;
+
+                    &:last-child {
+                        padding-bottom: none;
+                        border-bottom: none;
+                    }
+
+                    &:not(:first-child) {
+                        padding-top: $space-16;
+                    }
+
+                    .list-item__info {
+                        flex-grow: 9;
+                        .list-item__label {
+                            display: flex;
+                            align-items: center;
+                            gap: $space-16;
+                            @include text("14", $medium);
+                            color: $neutral-500;
+                        }
+
+                        .list-item__value {
+                            @include text("14");
+                            color: $neutral-400;
+                        }
+
+                    }
+                    .list-item__action {
+                        display: flex;
+                        align-items: center;
+                        justify-content: right;
+                        gap: $space-8;
+                        flex-grow: 1;
+                    }
+                }
+            }
+        }
+
+        .card-footer {
+            padding: $space-20 $space-24;
+            border-top: 1px solid $neutral-100;
+            text-align: right;
+
+            .link {
+                @include text("14", $medium);
+            }
+        }
+    }
+
+    &.card_table {
+        .card__body {
+            padding: 0 !important;
+            width: 100%;
+        }
+    }
+
+    &.card_form-stepper {
+        margin-bottom: $size-64;
+    }
+}

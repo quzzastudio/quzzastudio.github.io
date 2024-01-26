@@ -1,0 +1,107 @@
+$alert-text-color: $black;
+$alert-padding: $space-12;
+$alert-content-padding: $space-8;
+
+$alert-icon-ds-size: $size-20;
+$alert-icon-ds-box: $size-20;
+$alert-icon-ds-color: $neutral-400;
+
+$alert-icon-size: $size-18;
+$alert-icon-box: $size-24;
+$alert-border-size: $size-1;
+$alert-icon-default: $ic-var-information-circle-mini;
+$alert-icon-success: $ic-var-check-circle-mini;
+$alert-icon-warning: $ic-var-exclamation-triangle-mini;
+$alert-icon-danger: $ic-var-x-circle-solid;
+$alert-icon-helper: $ic-var-question-mark-circle-solid;
+$alert-icon-default: $ic-var-information-circle-mini;
+
+$alert-icon: (
+    "default": $alert-icon-default,
+    "success": $alert-icon-success,
+    "warning": $alert-icon-warning,
+    "danger": $alert-icon-danger,
+    "helper": $alert-icon-default,
+);
+
+.alert {
+    --#{$prefix}-alert-background: transparent;
+    --#{$prefix}-alert-text-color: #{$alert-text-color};
+    --#{$prefix}-alert-padding: #{$alert-padding};
+    --#{$prefix}-alert-border-color: inherit;
+    --#{$prefix}-alert-border-size: #{$alert-border-size};
+    --#{$prefix}-alert-icon-ds-color: #{$alert-icon-ds-color};
+    --#{$prefix}-alert-icon-ds-size: #{$alert-icon-ds-size};
+    --#{$prefix}-alert-icon-ds-box: #{$alert-icon-ds-box};
+    --#{$prefix}-alert-icon-color: inherit;
+    --#{$prefix}-alert-icon-size: #{$alert-icon-size};
+    --#{$prefix}-alert-icon-box: #{$alert-icon-box};
+    --#{$prefix}-alert-content-padding-x: #{$alert-content-padding};
+
+    padding: var(--#{$prefix}-alert-padding);
+    border-radius: $size-8;
+    background-color: var(--#{$prefix}-alert-background);
+    border: $size-1 solid var(--#{$prefix}-alert-border-color);
+    color: var(--#{$prefix}-alert-text-color);
+    display: flex;
+    @include text("14");
+
+    &::before {
+        content: ic-content(map-get($alert-icon, "default"));
+        font-family: $ic-style-family;
+        color: var(--#{$prefix}-alert-icon-color);
+        width: var(--#{$prefix}-alert-icon-box);
+        line-height: var(--#{$prefix}-alert-icon-box);
+        font-size: var(--#{$prefix}-alert-icon-size);
+        text-align: center;
+    }
+
+    .alert__content {
+        flex-grow: 1;
+        display: block;
+        padding-left: var(--#{$prefix}-alert-content-padding-x);
+        padding-right: var(--#{$prefix}-alert-content-padding-x);
+        .alert__heading {
+            @include text("14", $semibold);
+        }
+    }
+
+    .icon-x-mark-mini {
+        height: fit-content;
+        color: var(--#{$prefix}-alert-icon-ds-color);
+        width: var(--#{$prefix}-alert-icon-ds-box);
+        line-height: var(--#{$prefix}-alert-icon-ds-box);
+        font-size: var(--#{$prefix}-alert-icon-ds-size);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .link{
+        font-weight: $semibold;
+    }
+}
+@each $state, $data in $functional-colors {
+
+    .alert_#{$state} {
+        
+        &::before {
+            content: ic-content(map-get($alert-icon, $state));
+        }
+
+        @if $state == "default" {
+            --#{$prefix}-alert-background: var(--#{$prefix}-neutral-0);
+            --#{$prefix}-alert-border-color: var(--#{$prefix}-neutral-100);
+            --#{$prefix}-alert-icon-color: var(--#{$prefix}-neutral-400);
+        }@else if $state == "danger" {
+            --#{$prefix}-alert-background: var(--#{$prefix}-error-100);
+            --#{$prefix}-alert-border-color: var(--#{$prefix}-error-200);
+            --#{$prefix}-alert-icon-color: var(--#{$prefix}-error-400);
+        }
+        @else { 
+            --#{$prefix}-alert-background: var(--#{$prefix}-#{$state}-100);
+            --#{$prefix}-alert-border-color: var(--#{$prefix}-#{$state}-200);
+            --#{$prefix}-alert-icon-color: var(--#{$prefix}-#{$state}-400);
+        }
+        
+    }
+}

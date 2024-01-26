@@ -1,0 +1,130 @@
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: $size-10;
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+    padding: $size-8 $size-16;
+    @include text("13", $medium);
+    font-family: "Poppins";
+
+    &.btn_large {
+        padding: $size-12 $size-16;
+        @include text("16", $semibold);
+    }
+
+    .icon {
+        font-size: $size-20;
+    }
+
+    &.btn_leading {
+        background: $white;
+        color: $neutral-400;
+        border: 1px solid;
+        border-color: $neutral-300;
+        border-radius: $size-6 0 0 $size-6;
+
+        &.hover,
+        &:hover {
+            background: $neutral-200;
+            color: $black;
+            border-color: $neutral-300;
+
+            .icon {
+                color: $neutral-400;
+            }
+        }
+
+        &.visited,
+        &:visited {
+            background: $neutral-300;
+            color: $black;
+        }
+
+        &.active,
+        &:active {
+            background: $ocean-blue-300;
+            color: $white;
+
+            .icon {
+                color: $white;
+            }
+        }
+
+    }
+
+    &.btn_middle {
+        background: $white;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-right: none;
+        border-left: none;
+        color: $neutral-400;
+        border-color: $neutral-300;
+
+        &.hover,
+        &:hover {
+            background: $neutral-200;
+            color: $black;
+            border-color: $neutral-300;
+
+            .icon {
+                color: $neutral-400;
+            }
+        }
+
+        &.visited,
+        &:visited {
+            background: $neutral-300;
+            color: $black;
+        }
+
+        &.active,
+        &:active {
+            background: $ocean-blue-300;
+            color: $white;
+
+            .icon {
+                color: $white;
+            }
+        }
+
+    }
+
+    &.btn_trailing {
+        background: $white;
+        color: $neutral-400;
+        border: 1px solid;
+        border-color: $neutral-300;
+        border-radius: 0 $size-6 $size-6 0;
+
+        &.hover,
+        &:hover {
+            background: $neutral-200;
+            color: $black;
+            border-color: $neutral-300;
+
+            .icon {
+                color: $neutral-400;
+            }
+        }
+
+        &.visited,
+        &:visited {
+            background: $neutral-300;
+            color: $black;
+        }
+
+        &.active,
+        &:active {
+            background: $ocean-blue-300;
+            color: $white;
+
+            .icon {
+                color: $white;
+            }
+        }
+
+    }
+}

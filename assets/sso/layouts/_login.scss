@@ -1,0 +1,220 @@
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    min-height: 100vh;
+    margin: auto;
+    background-color: $white;
+    
+    // Responsive Tablet and Mobile
+    @include media-down("md") {
+        padding: $space-12 $space-16;
+    }
+
+    .form-login__header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $size-16;
+        padding-bottom: 60px;
+
+        // Responsive Tablet and Mobile
+        @include media-down("md") {
+            padding-bottom: $space-24;
+        }
+
+        .identity-logo {
+            width: 100%;
+            max-width: 44px;
+            object-fit: contain;
+        }
+
+        .identity-separator {
+            border: 1px solid $neutral-100;
+            display: flex;
+            height: $size-32;
+        }
+
+        .identity-name {
+            @include text("13", $semibold);
+            color: $black;
+            max-width: 180px;
+        }
+    }
+
+    .form-login__content {
+        .content__title {
+            text-align: center;
+            padding-bottom: $space-32;
+
+            // Responsive Mobile
+            @include media-down("xs") {
+                padding-bottom: $space-36;
+            }
+
+            // Responsive Tablet
+            @include media-down("md") {
+                padding-bottom: $space-24;
+            }
+
+            .title-page {
+                @include text("24", $semibold);
+                color: $black;
+                padding-bottom: $space-12;
+
+                // Responsive Mobile
+                @include media-down("xs") {
+                    @include text("16", $semibold);
+                    padding-bottom: $space-8;
+                }
+
+                 // Responsive Tablet
+                @include media-down("md") {
+                    @include text("20", $semibold);
+                    padding-bottom: $space-8;
+                }
+            }
+            .subtitle-page {
+                @include text("12", $regular);
+                color: $neutral-400;
+
+                // Responsive Mobile
+                @include media-down("xs") {
+                    @include text("11", $regular);
+                }
+
+                // Responsive Tablet
+                @include media-down("md") {
+                    @include text("12", $regular);
+                }
+            }
+        }
+
+        .content__main {
+            button {
+                width: 100%;
+                @include text("13", $semibold);
+
+                // Responsive Mobile and Tablet
+                @include media-down("md") {
+                    img {
+                        width: $size-16;
+                    }
+                }
+            }
+
+            .title-login-email {
+                display: flex;
+                position: relative;
+                padding: $space-20 0;
+
+                // Responsive Mobile and Tablet
+                @include media-down("md") {
+                    padding: $space-24 0;
+                }
+                
+                .title-line {
+                    display: flex;
+                    width: 100%;
+                    border-top: 1px solid $neutral-100;
+                }
+
+                .title-text {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    @include text("12", $medium);
+                    color: $neutral-300;
+                    background-color: $white;
+                    width: 165px;
+                    text-align: center;
+                }
+            }
+
+            .form-control {
+                padding-bottom: $space-20;
+
+                // Responsive Mobile and Tablet
+                @include media-down("md") {
+                    padding-bottom: $space-16;
+                }
+
+                .form-control__label {
+                    // Responsive Mobile and Tablet
+                    @include media-down("md") {
+                        @include text("12", $medium);
+                    }
+                }
+            }
+
+            .form-check {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: $space-32;
+
+                // Responsive Mobile and Tablet
+                @include media-down("md") {
+                    padding-bottom: $space-24;
+                }
+
+                .form-control {
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 0;
+                    .form-control__label-checkbox {
+                        @include text("13", $regular);
+                    }
+                }
+
+                .link {
+                    width: 100%;
+                    justify-content: right;
+                    text-decoration: underline;
+                    color: $primary-400;
+                    @include text("13", $semibold);
+
+                    
+                    // Responsive 
+                    @include media-down("md") {
+                        @include text("12", $semibold);
+                    }
+                }
+            }
+
+            .link-signup {
+                display: flex;
+                justify-content: center;
+                padding-top: $space-32;
+
+                // Responsive Mobile and Tablet
+                @include media-down("md") {
+                    padding-top: $space-16;
+                }
+
+                .link-signup__text {
+                    @include text("13", $regular);
+
+                    // Responsive Mobile and Tablet
+                    @include media-down("md") {
+                        @include text("12", $regular);
+                    }
+                }
+                .link {
+                    color: $primary-400;
+                    @include text("13", $semibold);
+                    text-decoration: underline;
+
+                    // Responsive Mobile and Tablet
+                    @include media-down("md") {
+                        @include text("12", $semibold);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+.dropdown-action {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+
+    & &__list {
+        // FIXME: Pastikan nanti bekerja secara JS juga dan bisa dipakai di tengah-tengah main
+        position: absolute;
+        z-index: 1000;
+        top: calc(100% + $size-4);
+        left: 0;
+        pointer-events: none;
+        background: var(--#{$prefix}-neutral-0);
+        min-width: 13rem;
+        height: fit-content;
+        border: $size-1 solid var(--#{$prefix}-neutral-50);
+        box-shadow: $shadow-lg;
+        border-radius: $size-8;
+        transition: all 0.15s cubic-bezier(0.25, 0, 0.25, 1.75),
+            opacity 0.1s linear;
+        opacity: 0;
+
+        hr {
+            height: $size-1;
+            background: var(--#{$prefix}-neutral-50);
+            border: none;
+        }
+    }
+
+    & &__item {
+        width: 100%;
+        height: $size-40;
+        overflow: hidden;
+
+        &:first-child {
+            border-radius: $size-8 $size-8 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 $size-8 $size-8;
+        }
+
+        & > a,
+        & > button {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            background: var(--#{$prefix}-neutral-0);
+            padding: $size-10 $space-16;
+            gap: $space-12;
+            color: var(--#{$prefix}-neutral-400);
+            @include text("13");
+
+            &:hover {
+                text-decoration: none;
+                outline: none;
+                border: none;
+            }
+
+            .icon {
+                color: var(--#{$prefix}-neutral-400);
+                font-size: $size-16;
+                line-height: $size-16;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background: var(--#{$prefix}-neutral-50);
+            }
+
+            &:active {
+                background: var(--#{$prefix}-neutral-100);
+            }
+        }
+    }
+
+    &.show {
+        [data-toggle="dropdown"] {
+            outline: 0;
+            box-shadow: 0 0 0 0.125rem var(--#{$prefix}-primary-alpha-0-12);
+        }
+        .dropdown-action__list {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &.dropdown-action__end {
+        .dropdown-action__list {
+            top: calc(100% + $size-4);
+            bottom: unset;
+            left: unset;
+            right: 0;
+        }
+    }
+}

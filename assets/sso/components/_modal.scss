@@ -1,0 +1,183 @@
+$modal-confirmation-icon: (
+    "warning": $ic-var-exclamation-triangle-solid,
+    "error": $ic-var-x-circle-solid,
+    "primary": $ic-var-information-circle-solid,
+    "success": $ic-var-check-circle-solid,
+);
+
+[data-toggle="modal"] {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    margin: auto;
+    position: fixed;
+    padding: 80px $space-16;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    z-index: 1011;
+    overflow-y: auto;
+
+    &.is-visible {
+        display: flex;
+        opacity: 1;
+    }
+
+    & &__overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        height: 100vh;
+        width: 100vw;
+        overflow: auto;
+        // background: rgba(0, 0, 0, 0.2);
+        background: #212121;
+        opacity: 0.64;
+    }
+
+    h3 {
+        @include text ("16", $semibold);
+        color: $black;
+    }
+
+    p {
+        @include text ("13");
+        color: $neutral-400;
+    }
+
+    & &__wrapper {
+        height: fit-content;
+        background: white;
+        border-radius: $size-8;
+        box-shadow: $outer-shadow-lg;
+        padding: $space-24;
+        z-index: 2;
+        width: 700px;
+
+        @include media-down("md") {
+            padding: $space-16;
+        }
+    }
+
+    &__header {
+        display: flex;
+        gap: $space-24;
+        padding-bottom: $space-24;
+
+        @include media-down("md") {
+            gap: $space-16;
+            padding-bottom: $space-16;
+        }
+
+        .modal__header-wrapper {
+            display: block;
+            flex-grow: 1;
+
+        }
+
+        .icon {
+            color: $neutral-500;
+            width: $size-24;
+            height: fit-content;
+            line-height: $size-24;
+            font-size: $size-20;
+            text-align: center;
+            cursor: pointer;
+            content: ic-content($ic-var-x-mark-mini);
+        }
+    }
+
+    & &__body {
+        width: 100%;
+        @include text ("14");
+
+        &img,
+        &svg,
+        &video{
+            display: block;
+            min-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        // NOTE: modifier card ketika di dalam modal__body
+        .card {
+            box-shadow: $outer-shadow-sm;
+            border: $size-1 solid var(--#{$prefix}-neutral-50);
+            padding: $space-16;
+        }
+    }
+
+    & &__footer {
+        padding-top: $size-24;
+        display: flex;
+        gap: $space-16;
+        justify-content: end;
+    }
+
+    @each $state,
+    $icon in $modal-confirmation-icon {
+        &_confirmation-#{$state} {
+            // align-items: center;
+            & .modal__wrapper {
+                width: 544px;
+            }
+            .modal__header {
+                &::before {
+                    font-family: $ic-style-family;
+                    font-size: $size-20;
+                    line-height: $size-20;
+                    padding: $size-10;
+                    border-radius: 50%;
+                    height: fit-content;
+                    content: ic-content(#{$icon});
+                    color: $white;
+                    background: var(--#{$prefix}-#{$state}-400);
+                }
+                .icon {
+                    display: none;
+                }
+            }
+            .modal__body {
+                padding: 0 $size-24 $size-24 $size-64;
+                @include text ("14");
+
+                @include media-down("md") {
+                    padding: 0 $size-16 $size-16 $size-56;
+                }
+            }
+        }
+    }
+
+    &.modal_center {
+        align-items: center;
+    }
+
+    &.modal_confirmation-small {
+        .modal__wrapper {
+            width: 372px;
+        }
+        .modal__body {
+            display: none;
+        }
+    }
+
+    &.modal_module {
+        .modal__wrapper {
+            width: 480px;
+        }
+        .modal__footer {
+            justify-content: space-between;
+            & > * {
+                width: 100%;
+            }
+        }
+    }
+}

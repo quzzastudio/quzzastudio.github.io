@@ -1,0 +1,157 @@
+.form-control {
+    input[type="range"] {
+        padding: 0;
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin: 0;
+        min-height: 0;
+        height: $size-4;
+        background: $neutral-200;
+        border: none;
+        border-radius: $size-4;
+        background-image: linear-gradient(var(--#{$prefix}-primary), var(--#{$prefix}-primary));
+        background-size: 32% 100%;
+        background-repeat: no-repeat;
+
+        &:focus,
+        &:hover,
+        &:read-only {
+            border: none;
+        }
+
+        &:disabled {
+            &:focus,
+            &:hover,
+            &:read-only {
+                cursor: default;
+                background-image: linear-gradient(
+                    var(--#{$prefix}-primary),
+                    var(--#{$prefix}-primary)
+                );
+                background-size: 32% 100%;
+                background-repeat: no-repeat;
+            }
+        }
+
+        &::-webkit-slider-thumb {
+            pointer-events: auto;
+            -webkit-appearance: none;
+            height: $size-18;
+            width: $size-18;
+            border-radius: 50%;
+            background: $white !important;
+            border: $size-1 solid var(--#{$prefix}-primary);
+            @include transition(
+                border-color 0.15s ease-in-out,
+                box-shadow 0.15s ease-in-out
+            );
+        }
+
+        &::-moz-range-thumb {
+            -moz-appearance: none;
+            height: $size-18;
+            width: $size-18;
+            border-radius: 50%;
+            background: $white !important;
+            border: $size-1 solid var(--#{$prefix}-primary);
+            @include transition(
+                border-color 0.15s ease-in-out,
+                box-shadow 0.15s ease-in-out
+            );
+        }
+
+        &::-ms-thumb {
+            -ms-appearance: none;
+            height: $size-18;
+            width: $size-18;
+            border-radius: 50%;
+            background: $white !important;
+            border: $size-1 solid var(--#{$prefix}-primary);
+            @include transition(
+                border-color 0.15s ease-in-out,
+                box-shadow 0.15s ease-in-out
+            );
+        }
+
+        &:focus::-webkit-slider-thumb {
+            outline: 0;
+            box-shadow: 0 0 0 0.188rem var(--#{$prefix}-primary-100);
+        }
+
+        &:focus::-moz-range-thumb {
+            outline: 0;
+            box-shadow: 0 0 0 0.188rem var(--#{$prefix}-primary-100);
+        }
+
+        &:focus::-ms-thumb {
+            outline: 0;
+            box-shadow: 0 0 0 0.188rem var(--#{$prefix}-primary-100);
+        }
+    }
+    .form-control__slider {
+        position: relative;
+        padding: $space-16 0 0 0;
+
+        input[type="range"] {
+            position: absolute;
+            width: 100%;
+            height: $size-4;
+            top: $size-4 * -1;
+            background: none;
+            pointer-events: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .form-control__slider-range {
+            height: $size-4;
+            position: relative;
+            background-color: $neutral-200;
+            border-radius: $size-2;
+
+            .form-control__slider-range__selected {
+                height: 100%;
+                left: 30%;
+                right: 30%;
+                position: absolute;
+                border-radius: $size-4;
+                background-color: var(--#{$prefix}-primary);
+            }
+        }
+
+        .form-control__slider-input {
+            position: relative;
+        }
+
+        .form-control__slider-label {
+            @include text("12");
+            margin: 0;
+            padding: $space-24 0 $space-12 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: $space-24;
+            align-items: center;
+
+            div {
+                width: calc(50% - $size-16 * 4);
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: $space-16;
+
+                label {
+                    margin: 0;
+                }
+                input {
+                    width: calc(70% - $size-4 * 4);
+                    padding: $space-4;
+                }
+            }
+        }
+    }
+}
